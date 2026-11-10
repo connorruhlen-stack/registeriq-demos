@@ -1,0 +1,51 @@
+/* The front page of the demos site: a plain list of the landing page designs. */
+@font-face { font-family: 'Fixel Display'; src: url('./fonts/FixelDisplay-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Fixel Text'; src: url('./fonts/FixelText-Regular.woff2') format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Fixel Text'; src: url('./fonts/FixelText-Bold.woff2') format('woff2'); font-weight: 700; font-display: swap; }
+
+:root {
+  --bg: #0f1114;
+  --panel: #191c22;
+  --rule: #2b3039;
+  --ink: #f2f0ea;
+  --dim: #a9afba;
+  --pad: clamp(18px, 4.5vw, 48px);
+  --ease: cubic-bezier(0.2, 0, 0, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); color-scheme: dark; scrollbar-color: var(--rule) var(--bg); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 17px/1.5 'Fixel Text', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, p, ul { margin: 0; }
+::selection { background: var(--ink); color: var(--bg); }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+
+main { max-width: 1120px; margin: 0 auto; padding: clamp(28px, 6vw, 76px) max(var(--pad), env(safe-area-inset-right, 0px)) clamp(40px, 7vw, 88px) max(var(--pad), env(safe-area-inset-left, 0px)); }
+h1 { font: 700 clamp(32px, 4vw + 14px, 56px) / 1.05 'Fixel Display', 'Fixel Text', sans-serif; letter-spacing: -0.022em; text-wrap: balance; }
+header p { color: var(--dim); font-size: 18px; max-width: 36rem; margin-top: 12px; text-wrap: pretty; }
+
+.pages { list-style: none; padding: 0; margin-top: clamp(32px, 6vw, 64px); display: grid; gap: clamp(44px, 7vw, 88px); }
+.pages li { display: grid; gap: 22px; }
+.shot { position: relative; display: block; overflow: hidden; background: var(--panel); border-radius: 10px; padding: clamp(14px, 3vw, 28px) clamp(14px, 3vw, 28px) 0; }
+.shot img { display: block; height: auto; }
+.shot .wide { width: 100%; border-radius: 6px 6px 0 0; }
+.shot .tall { display: none; }
+h2 { font: 700 clamp(26px, 2.4vw + 12px, 36px) / 1.1 'Fixel Display', 'Fixel Text', sans-serif; letter-spacing: -0.02em; }
+.words p { color: var(--dim); margin-top: 8px; max-width: 30rem; text-wrap: pretty; }
+.words .by { font-size: 15px; }
+.open { display: inline-flex; align-items: center; min-height: 52px; margin-top: 20px; padding: 0 26px; border-radius: 4px; background: var(--ink); color: var(--bg); font-weight: 700; text-decoration: none; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background-color 120ms var(--ease), transform 120ms var(--ease); }
+.open:active { transform: scale(0.97); }
+
+footer { max-width: 1120px; margin: 0 auto; padding: 22px max(var(--pad), env(safe-area-inset-right, 0px)) calc(28px + env(safe-area-inset-bottom, 0px)) max(var(--pad), env(safe-area-inset-left, 0px)); border-top: 1px solid var(--rule); color: var(--dim); font-size: 15px; }
+
+@media (hover: hover) and (pointer: fine) {
+  .open:hover { background: #ffffff; }
+}
+@media (min-width: 860px) {
+  .pages li { grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 52px; align-items: center; }
+  .shot { padding-right: 16%; }
+  /* The phone view stands in front of the desktop view, bottom right. */
+  .shot .tall { display: block; position: absolute; right: clamp(14px, 3vw, 28px); bottom: 0; width: 22%; border-radius: 8px 8px 0 0; box-shadow: 0 0 0 5px var(--panel); }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
