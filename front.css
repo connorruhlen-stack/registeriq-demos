@@ -31,7 +31,6 @@ header p { color: var(--dim); font-size: 18px; max-width: 36rem; margin-top: 12p
 .shot .tall { display: none; }
 h2 { font: 700 clamp(26px, 2.4vw + 12px, 36px) / 1.1 'Fixel Display', 'Fixel Text', sans-serif; letter-spacing: -0.02em; }
 .words p { color: var(--dim); margin-top: 8px; max-width: 30rem; text-wrap: pretty; }
-.words .by { font-size: 15px; }
 .open { display: inline-flex; align-items: center; min-height: 52px; margin-top: 20px; padding: 0 26px; border-radius: 4px; background: var(--ink); color: var(--bg); font-weight: 700; text-decoration: none; touch-action: manipulation; user-select: none; -webkit-user-select: none; transition: background-color 120ms var(--ease), transform 120ms var(--ease); }
 .open:active { transform: scale(0.97); }
 
